@@ -3,7 +3,7 @@
   <view class="weui-cells">
     <view class="weui-cell">
       <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="输入你需要完成的事情..." bindchange="bind_change"  />
+        <input class="weui-input" value="{{tmp}}" placeholder="输入你需要完成的事情..." bindchange="bind_change" />
       </view>
       <view class="weui-cell__ft">
         <a class="weui-vcode-btn" bindtap="bind_submit">提交</a>

@@ -15,17 +15,12 @@ Page({
       done: false,
       content: "测试内容3"
     },],
-    tmp: ""
+    tmp: "",
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   bind_change: function(e){
     this.setData({
-      tmp: e.detail.value
+      tmp: e.detail.value,
     })
   },
   bind_submit: function(e){
