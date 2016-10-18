@@ -1,8 +1,13 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container page-todos">
   <view class="weui-cells">
     <view class="weui-cell">
-      <input class="weui-input" placeholder="输入你需要完成的事情..." />
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="输入你需要完成的事情..." bindchange="bind_change"  />
+      </view>
+      <view class="weui-cell__ft">
+        <a class="weui-vcode-btn" bindtap="bind_submit">提交</a>
+      </view>
     </view>
   </view>
   <view class="weui-cells">

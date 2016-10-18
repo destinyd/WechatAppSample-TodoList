@@ -14,13 +14,29 @@ Page({
     {
       done: false,
       content: "测试内容3"
-    },]
+    },],
+    tmp: ""
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+  bind_change: function(e){
+    this.setData({
+      tmp: e.detail.value
+    })
+  },
+  bind_submit: function(e){
+    if(this.data.tmp){
+      var todos = this.data.todos
+      todos.push({done: false, content: this.data.tmp}) 
+      this.setData({
+        todos: todos,
+        tmp: ""
+      })
+    }
   },
   onLoad: function () {
     // console.log('onLoad')
