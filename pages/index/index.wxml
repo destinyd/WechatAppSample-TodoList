@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="weui-cells">
+    <view class="weui-cell">
+      <input class="weui-input" placeholder="输入你需要完成的事情..." />
+    </view>
+  </view>
+  <view class="weui-cells">
+    <label wx:for="{{todos}}" wx:for-item="todo" class="weui-cell weui-check__label">
+      <view class="weui-cell__hd">
+        <checkbox class="" checked="{{todo.done}}" />
+      </view>
+      <view class="weui-cell__bd">
+        {{todo.content}}
+      </view>
+    </label>
+  </view>
+</view>
