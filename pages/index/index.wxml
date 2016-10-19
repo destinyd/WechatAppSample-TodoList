@@ -21,6 +21,9 @@
       <view class="weui-cell__bd">
         {{todo.content}}
       </view>
+      <view class="weui-cell__ft">
+        <a class="weui-vcode-btn" catchtap="bind_delete" data-todo-id="{{todo.id}}">X</a>
+      </view>
     </label>
   </view>
 </view>

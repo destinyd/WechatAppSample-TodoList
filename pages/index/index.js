@@ -28,7 +28,6 @@ Page({
     }
   },
   bind_check_change: function(e){
-    console.log(e)
     var id = e.currentTarget.id
     var todos = this.data.todos
     for(var i = 0; i < todos.length; i++){
@@ -39,6 +38,25 @@ Page({
       }
     }
     this.change_todos(todos)
+  },
+  bind_delete: function(e){
+    var todo_id = e.currentTarget.dataset.todoId
+    this.delete_todo(todo_id)
+  },
+  delete_todo: function(todo_id){
+    var todos = this.data.todos
+    var index = -1
+    for(var i = 0; i < todos.length; i++){
+      var todo = todos[i]
+      if(todo.id.toString() == todo_id.toString()){
+        index = i;
+        break;
+      }
+    }
+    if(index >=0){
+      todos.splice(index, 1)
+      this.change_todos(todos)
+    }
   },
   change_todos: function(todos){
       this.setData({
