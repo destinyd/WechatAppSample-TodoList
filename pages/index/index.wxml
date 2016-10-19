@@ -16,7 +16,7 @@
   <view class="weui-cells">
     <label wx:for="{{todos}}" wx:for-item="todo" class="weui-cell weui-check__label" wx:for-index="idx">
       <view class="weui-cell__hd">
-        <switch type="checkbox" class="weui-switch" checked="{{todo.done}}" bindtap="bind_check_change" id="{{idx}}" value="{{idx}}" />
+        <switch type="checkbox" class="weui-switch" checked="{{todo.done}}" bindchange="bind_check_change" id="{{todo.id}}" value="{{todo.id}}" />
       </view>
       <view class="weui-cell__bd">
         {{todo.content}}

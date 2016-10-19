@@ -16,16 +16,35 @@ Page({
   bind_submit: function(e){
     if(this.data.tmp){
       var todos = this.data.todos
-      todos.push({done: false, content: this.data.tmp}) 
+      todos.push({
+        done: false, 
+        content: this.data.tmp,
+        id: (new Date()).valueOf()})
+
+      this.change_todos(todos)
       this.setData({
-        todos: todos,
         tmp: ""
       })
-      app.save_todos(todos)
     }
   },
   bind_check_change: function(e){
     console.log(e)
+    var id = e.currentTarget.id
+    var todos = this.data.todos
+    for(var i = 0; i < todos.length; i++){
+      var todo = todos[i]
+      if(todo.id.toString() == id){
+        todo.done = !todo.done
+        break;
+      }
+    }
+    this.change_todos(todos)
+  },
+  change_todos: function(todos){
+      this.setData({
+        todos: todos,
+      })
+      app.save_todos(todos)
   },
   hide_loading: function(){
     this.setData({
