@@ -3,19 +3,9 @@
 var app = getApp()
 Page({
   data: {
-    todos: [{
-      done: true,
-      content: "测试内容1"
-    },
-    {
-      done: false,
-      content: "测试内容2"
-    },
-    {
-      done: false,
-      content: "测试内容3"
-    },],
+    todos: [],
     tmp: "",
+    loaded: false
   },
   //事件处理函数
   bind_change: function(e){
@@ -31,17 +21,22 @@ Page({
         todos: todos,
         tmp: ""
       })
+      app.save_todos(todos)
     }
   },
+  bind_check_change: function(e){
+    console.log(e)
+  },
+  hide_loading: function(){
+    this.setData({
+      loaded: true
+    })
+  },
   onLoad: function () {
-    // console.log('onLoad')
-    // var that = this
-    // //调用应用实例的方法获取全局数据
-    // app.getUserInfo(function(userInfo){
-    //   //更新数据
-    //   that.setData({
-    //     userInfo:userInfo
-    //   })
-    // })
+    var todos = app.load_todos()
+    this.setData({
+      todos: todos
+    })
+    this.hide_loading()
   }
 })

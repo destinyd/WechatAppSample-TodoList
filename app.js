@@ -26,5 +26,14 @@ App({
   },
   globalData:{
     userInfo:null
-  }
+  },
+  load_todos: function(){
+    return wx.getStorageSync("todos") || []
+  },
+  save_todos: function(todos){
+    return wx.setStorage({
+      key: "todos",
+      data: todos
+    })
+  },
 })
