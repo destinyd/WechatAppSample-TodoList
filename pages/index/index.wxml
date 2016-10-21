@@ -14,16 +14,26 @@
     </view>
   </view>
   <view class="weui-cells">
-    <label wx:for="{{todos}}" wx:for-item="todo" class="weui-cell weui-check__label" wx:for-index="idx">
+    <view wx:for="{{todos}}" wx:for-item="todo" class="weui-cell weui-check__label" wx:for-index="idx" bindlongtap="bind_longtap" data-todo-id="{{todo.id}}">
       <view class="weui-cell__hd">
-        <switch type="checkbox" class="weui-switch" checked="{{todo.done}}" bindchange="bind_check_change" id="{{todo.id}}" value="{{todo.id}}" />
+        <switch type="checkbox" class="weui-switch" checked="{{todo.done}}" bindchange="bind_check_change" data-todo-id="{{todo.id}}" value="{{todo.id}}" />
       </view>
-      <view class="weui-cell__bd">
-        {{todo.content}}
-      </view>
-      <view class="weui-cell__ft">
-        <a class="weui-vcode-btn" catchtap="bind_delete" data-todo-id="{{todo.id}}">X</a>
-      </view>
-    </label>
+      <block wx:if="{{editing_todo_id != todo.id}}">
+        <view class="weui-cell__bd">
+          {{todo.content}}
+        </view>
+        <view class="weui-cell__ft">
+          <a class="weui-vcode-btn" catchtap="bind_delete" data-todo-id="{{todo.id}}">X</a>
+        </view>
+      </block>
+      <block wx:if="{{editing_todo_id == todo.id}}">
+        <view class="weui-cell__bd">
+          <input class="editing" bindchange="bind_editing_change" value="{{todo.content}}" data-todo-id="{{todo.id}}" />
+        </view>
+        <view class="weui-cell__ft">
+          <a class="weui-vcode-btn" catchtap="bind_update" data-todo-id="{{todo.id}}">修改</a>
+        </view>
+      </block>
+    </view>
   </view>
 </view>

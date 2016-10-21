@@ -1,0 +1,5 @@
+.editing{
+  padding: 0 10px;
+  border: #999 solid 1px;
+  margin-left: 10px;
+}
