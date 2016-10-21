@@ -4,7 +4,7 @@
 包含任务创建、完成、修改、删除功能
 
 ### 演示
-[演示GIF](http://i.teamkn.com/i/MhY0FVGx.gif)
+![演示GIF](http://i.teamkn.com/i/MhY0FVGx.gif)
 
 
 ### 使用方法
